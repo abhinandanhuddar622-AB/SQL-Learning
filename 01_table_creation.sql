@@ -29,14 +29,14 @@ create table orders(
     status varchar(20));
 select * from orders;
 
-# modify the full amount line using alter and modify
+-- modify the full amount line using alter and modify
 alter table orders
 modify amount decimal(8,2) default 0.00;
 
 alter table orders 
 modify status varchar(20) default 'pending';
 
-# DESCRIBE the full table
+-- DESCRIBE the full table
 DESC orders;
 
 create table students_details (
@@ -63,7 +63,7 @@ create table bank_accounts (
     account_number varchar(20) unique not null,
     balance decimal(12,2) default 0.00,
     account_type varchar(20) default 'savings',
-    age int check(age >=18));  # here adding the condition
+    age int check(age >=18));  -- here adding the condition
     
 create table employees_details (
 	emp_id int primary key auto_increment,
@@ -83,8 +83,17 @@ modify email varchar(100) unique;
 create table user_profiles(
 	user_id int primary key auto_increment,
     username varchar(50) not null unique,
-    gender enum ('male','female','other'),   # only this values are selected 
+    gender enum ('male','female','other'),   -- only this values are selected 
     bio text,
     birth_date date,
     created_at datetime,
     is_active boolean default true);
+
+create table products(
+	product_id int primary key auto_increment,
+    product_code char(6) unique not null,
+    product_name varchar(100) not null,
+    price decimal(10,2) not null check (price >0),
+    discount decimal(5,2) default 0.00 check (discount between 0 and 100), -- between 0 - 100
+    description text,
+    status enum('Available', 'Out of Stock', 'Discontinued') default 'Available');
