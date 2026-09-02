@@ -10,7 +10,7 @@ WHERE city IS NULL;   -- Show students whose city has no value.
 -- 3. IS NOT NULL
 SELECT *
 FROM students3
-WHERE city IS NOT NULL;
+WHERE city IS NOT NULL;     -- To find rows where a column has a value
 
 -- 4. ❌ Don't use = NULL
 
