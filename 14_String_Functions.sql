@@ -26,30 +26,30 @@ FROM students3;
 CHAR_LENGTH()  → characters*/
 
 -- 6. TRIM() — Remove spaces from both sides
-SELECT TRIM(name)     -- '   Abhi   '  ->   Abhi
+SELECT TRIM(name)     -- '   Abhi   '  ->   'Abhi'
 FROM students3;
 
 -- 7. LTRIM() — Remove left-side spaces
-SELECT LTRIM(name)
+SELECT LTRIM(name)   -- '    Abhi'   ->  'Abhi'
 FROM students3;
 
 -- 8. RTRIM() — Remove right-side spaces
-SELECT RTRIM(name)
+SELECT RTRIM(name)    --  'Abhi     '  ->  'Abhi'
 FROM students3;
 
 -- 9. SUBSTRING() — Extract part of a string
 -- SUBSTRING(string, start_position, length)
-SELECT SUBSTRING(name, 1, 3)
+SELECT SUBSTRING(name, 1, 3)    -- Abhi  -> Abh  (123)
 FROM students3;
 
 -- 10. LEFT() — Get characters from the beginning
 -- LEFT(string, number_of_characters)
-SELECT LEFT(name, 3)
+SELECT LEFT(name, 3)    -- Abhi ->  Abh
 FROM students3;
 
 -- 11. RIGHT() — Get characters from the end
 -- RIGHT(string, number_of_characters)
-SELECT RIGHT(name, 3)
+SELECT RIGHT(name, 3)   -- Abhi ->  bhi
 FROM students3;
 
 -- 12. REPLACE() — Replace text
@@ -58,16 +58,16 @@ SELECT REPLACE(city, 'Bangalore', 'Bengaluru')
 FROM students3;
 
 -- 13. REVERSE() — Reverse a string
-SELECT REVERSE(name)
+SELECT REVERSE(name)    -- Abhi  ->   ihbA
 FROM students3;
 
 -- 14. LOCATE() — Find the position of text
 -- LOCATE(search_string, original_string)
-SELECT LOCATE('h', 'Abhinandan');
+SELECT LOCATE('h', 'Abhinandan');     -- 3
 
 -- 15. INSTR() — Also find position
 -- INSTR(original_string, search_string)
-SELECT INSTR('Abhinandan', 'h');
+SELECT INSTR('Abhinandan', 'h');   -- 3
 
 -- 16. Combining String Functions
 SELECT UPPER(TRIM(name)) AS cleaned_name
@@ -76,12 +76,12 @@ FROM students3;
 -- 17. String Functions with WHERE
 SELECT *
 FROM students3
-WHERE UPPER(city) = 'BENGALORE';
+WHERE UPPER(city) = 'BENGALORE';     -- UPPER It changes the value temporarily for comparison
 
 -- 18. String Functions with ORDER BY
 SELECT name
 FROM students3
-ORDER BY LENGTH(name);
+ORDER BY LENGTH(name);  -- shows shortest name to the longest name.
 
 
 /*
